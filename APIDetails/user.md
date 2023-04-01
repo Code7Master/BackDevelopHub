@@ -8,7 +8,7 @@ User와 관련된 API 명세서 입니다.
 
 ### URL
 ```URL
-/auth/login
+/auth/singup
 ```
 
 ### Request JSON
@@ -38,6 +38,39 @@ User와 관련된 API 명세서 입니다.
 
 ---
 
+## 가입
+클라이언트가 가입할 수 있는 API 입니다.
 
+### URL
+```url
+/auth/login
+```
+
+### Request JSON
+```json
+{
+    "username": "JunBeomHan",
+    "email": "email",
+    "password": "1234!"
+}
+```
+
+### Response JSON [TRUE]
+```json
+{
+    "status": 200,
+    "message": "Your subscription is complete."
+}
+```
+
+### Response JSON [FALSE]
+```json
+{
+    "status": 400,
+    "message": "There are no registered or existing user names."
+}
+```
+
+---
 
 
