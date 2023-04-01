@@ -2,7 +2,7 @@
 User와 관련된 API 명세서 입니다.
 
 # POST
-POST는 CRUD(create, read, update, delete)중 C(create) 해당됩니다.
+POST는 CRUD(create, read, update, delete)중 C(create)에 해당됩니다.
 
 ## 회원가입
 클라이언트가 회원가입을 할 수 있는 API 입니다.
