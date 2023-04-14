@@ -75,3 +75,6 @@ POST는 CRUD(create, read, update, delete)중 C(create)에 해당됩니다.
 ---
 
 
+로그아웃
+
+- 아직 안할거임
