@@ -3,6 +3,6 @@ CREATE TABLE answer_table (
     question_idx    INT(11) UNSIGNED    NOT NULL,
     writer          VARCHAR(12)         NOT NULL,
     content         TEXT                NOT NULL,
-    vote_cnt        INT(11) UNSIGNED    NOT NULL
+    vote_cnt        INT(11) UNSIGNED    NOT NULL,
     PRIMARY KEY(idx)
 )
