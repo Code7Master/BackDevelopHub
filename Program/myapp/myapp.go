@@ -38,21 +38,22 @@ func singUp(responseWriter http.ResponseWriter, request *http.Request) {
 
 	DB := database.InitDB()
 	var data []byte
-	if !database.NewDatabaseQuery().IsSameUsernameEmail(DB, user.Username, user.Email) {
+	if database.NewDatabaseQuery().IsSameUsernameEmail(DB, user.Username, user.Email) {
+		// Username과 email 중 하나만이라도 일치했다면
+		data, err = json.Marshal(HTTPHeaderStatus{Status: 404, Message: "There are already registered or existing username."})
+		if err != nil {
+			fmt.Println("[Server] ", err)
+		}
+		responseWriter.WriteHeader(http.StatusNotFound) // 404
+
+	} else {
 		data, err = json.Marshal(HTTPHeaderStatus{Status: 201, Message: "Your membership has been successfully completed."})
 		if err != nil {
 			fmt.Println("[Server] ", err)
 
 		}
 		responseWriter.WriteHeader(http.StatusOK)
-		// TODO:: DB 삽입
-
-	} else {
-		data, err = json.Marshal(HTTPHeaderStatus{Status: 400, Message: "There are already registered or existing username."})
-		if err != nil {
-			fmt.Println("[Server] ", err)
-		}
-		responseWriter.WriteHeader(http.StatusNotFound)
+		database.NewDatabaseQuery().SingUp(DB, user.Username, user.Email, user.Password)
 	}
 
 	responseWriter.Header().Add("content-type", "application/json")
