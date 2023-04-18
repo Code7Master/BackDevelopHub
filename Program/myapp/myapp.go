@@ -1,6 +1,7 @@
 package myapp
 
 import (
+	"BackDevelopHub/Program/database"
 	"encoding/json"
 	"fmt"
 	"net/http"
@@ -35,24 +36,23 @@ func singUp(responseWriter http.ResponseWriter, request *http.Request) {
 		return
 	}
 
-	// TODO : DB 값 있는지 없는지 확인하기.
-
+	DB := database.InitDB()
 	var data []byte
-	if true {
+	if !database.NewDatabaseQuery().IsSameUsernameEmail(DB, user.Username, user.Email) {
 		data, err = json.Marshal(HTTPHeaderStatus{Status: 201, Message: "Your membership has been successfully completed."})
 		if err != nil {
 			fmt.Println("[Server] ", err)
 
 		}
 		responseWriter.WriteHeader(http.StatusOK)
+		// TODO:: DB 삽입
 
 	} else {
 		data, err = json.Marshal(HTTPHeaderStatus{Status: 400, Message: "There are already registered or existing username."})
 		if err != nil {
 			fmt.Println("[Server] ", err)
-
 		}
-		// TODO: responseWriter.WriteHeader(http.) 요청이 없다는 http 코드 반환
+		responseWriter.WriteHeader(http.StatusNotFound)
 	}
 
 	responseWriter.Header().Add("content-type", "application/json")
