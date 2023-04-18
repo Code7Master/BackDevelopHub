@@ -32,7 +32,7 @@ POST는 CRUD(create, read, update, delete)중 C(create)에 해당됩니다.
 ### Response JSON [FALSE]
 ```json
 {
-    "status": 400,
+    "status": 404,
     "message": "There are already registered or existing username."
 }
 ```
