@@ -1,14 +1,12 @@
 package main
 
 import (
-	"BackendTutorial/chapter3/myapp"
+	"BackDevelopHub/Program/controller"
 	"net/http"
 )
 
 const PORT = ":9190"
 
 func main() {
-
-	http.ListenAndServe(PORT, myapp.NewHTTPHandler())
-
+	http.ListenAndServe(PORT, controller.NewHTTPHandler())
 }
