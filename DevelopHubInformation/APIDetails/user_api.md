@@ -1,9 +1,9 @@
 #  User API Detali
 
-## 회원가입 [  *GET*  ] 
+### 회원가입 [  *GET*  ] 
 클라이언트가 회원가입을 할 수 있는 API 입니다.
 
-## Request
+### Request
 ```URL
 /auth/singup
 ```
@@ -16,7 +16,7 @@
 }
 ```
 
-## Response 
+### Response 
 
 [ *SUCCESS* ] HTTP Status **201**
 
@@ -38,10 +38,10 @@
 
 ---
 
-## 가입 [  *GET* ] 
+### 가입 [  *GET* ] 
 클라이언트가 가입할 수 있는 API 입니다.
 
-## Request
+### Request
 ```url
 /auth/login
 ```
@@ -55,7 +55,7 @@
 }
 ```
 
-## Response
+### Response
 
 
 [ *SUCCESS* ] HTTP Status **200**
@@ -77,5 +77,5 @@
 ---
 
 
-## 로그아웃 [  *GET* ] 
+### 로그아웃 [  *GET* ] 
 - Auth관련은 후반에 작업합시다!
