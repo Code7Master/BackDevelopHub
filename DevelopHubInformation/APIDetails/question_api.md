@@ -1,15 +1,15 @@
 # Question API Detali
 
-## 모든 질문 갯수 조회 [  *GET* ] 
+### 모든 질문 갯수 조회 [  *GET* ] 
 질문의 모든 갯수를 반환해 줍니다.
 
-## Request
+### Request
 
 ```url
 /question/total
 ```
 
-## Response
+### Response
 
 [ *SUCCESS* ] HTTP Status **200**
 
@@ -21,15 +21,15 @@
 
 ---
 
-## 질문 미리보기 조회 [ *GET* ]
+### 질문 미리보기 조회 [ *GET* ]
 질문의 미리보기를 반환해 줍니다.
 
-## Request
+### Request
 ```url
 /question/preview/{idx}
 ```
 
-## Response 
+### Response 
 
 [ *SUCCESS* ] HTTP Status **200**
 
@@ -57,15 +57,15 @@
 
 ---
 
-## 질문 조회 [ *GET* ]
+### 질문 조회 [ *GET* ]
 질문의 상세한 정보를 반환해 줍니다.
 
-## Request
+### Request
 ```url
 /question/detail/{idx}
 ```
 
-## Response
+### Response
 
 [ *SUCCESS* ] HTTP Status **200**
 
