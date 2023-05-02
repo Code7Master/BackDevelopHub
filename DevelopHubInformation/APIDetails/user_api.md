@@ -1,18 +1,13 @@
 #  User API Detali
-User와 관련된 API 명세서 입니다.
 
-# POST
-POST는 CRUD(create, read, update, delete)중 C(create)에 해당됩니다.
-
-## 회원가입
+## 회원가입 [  *GET*  ] 
 클라이언트가 회원가입을 할 수 있는 API 입니다.
 
-### URL
+## Request
 ```URL
 /auth/singup
 ```
 
-### Request JSON
 ```json
 {
     "username": "JunBeomHan",
@@ -21,7 +16,10 @@ POST는 CRUD(create, read, update, delete)중 C(create)에 해당됩니다.
 }
 ```
 
-### Response JSON [TRUE]
+## Response 
+
+[ *SUCCESS* ] HTTP Status **201**
+
 ```json
 {
     "status": 201,
@@ -29,7 +27,8 @@ POST는 CRUD(create, read, update, delete)중 C(create)에 해당됩니다.
 }
 ```
 
-### Response JSON [FALSE]
+[ *FAIL* ] HTTP Status **404**
+
 ```json
 {
     "status": 404,
@@ -39,15 +38,15 @@ POST는 CRUD(create, read, update, delete)중 C(create)에 해당됩니다.
 
 ---
 
-## 가입
+## 가입 [  *GET* ] 
 클라이언트가 가입할 수 있는 API 입니다.
 
-### URL
+## Request
 ```url
 /auth/login
 ```
 
-### Request JSON
+
 ```json
 {
     "username": "JunBeomHan",
@@ -56,7 +55,10 @@ POST는 CRUD(create, read, update, delete)중 C(create)에 해당됩니다.
 }
 ```
 
-### Response JSON [TRUE]
+## Response
+
+
+[ *SUCCESS* ] HTTP Status **200**
 ```json
 {
     "status": 200,
@@ -64,7 +66,7 @@ POST는 CRUD(create, read, update, delete)중 C(create)에 해당됩니다.
 }
 ```
 
-### Response JSON [FALSE]
+[ *FAIL* ] HTTP Status **400**
 ```json
 {
     "status": 400,
@@ -75,6 +77,5 @@ POST는 CRUD(create, read, update, delete)중 C(create)에 해당됩니다.
 ---
 
 
-로그아웃
-
+## 로그아웃 [  *GET* ] 
 - Auth관련은 후반에 작업합시다!

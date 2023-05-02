@@ -1,64 +1,96 @@
-#  Question API Detali
-User와 관련된 API 명세서 입니다.
+# Question API Detali
 
-# POST
-POST는 CRUD(create, read, update, delete)중 C(create)에 해당됩니다.
+## 모든 질문 갯수 조회 [  *GET* ] 
+질문의 모든 갯수를 반환해 줍니다.
 
-# GET
-GET은 CRUD(create, read, update, delete)중 R(read)에 해당됩니다.
+## Request
 
-## 모든 질문 갯수 조회
-질문의 모든 갯수를 반환해 줍니다. 
 ```url
 /question/total
 ```
 
-### Response JSON
+## Response
+
+[ *SUCCESS* ] HTTP Status **200**
+
 ```json
 {
-    "total_question_count": (모든 갯수)
+    "total_question_count": (질문의 모든 갯수)
 }
 ```
 
 ---
 
-## 질문 미리보기
+## 질문 미리보기 조회 [ *GET* ]
 질문의 미리보기를 반환해 줍니다.
+
+## Request
 ```url
 /question/preview/{idx}
 ```
 
-### Response JSON 
+## Response 
+
+[ *SUCCESS* ] HTTP Status **200**
+
 ```json
 {
-    "writer": "admin",
-    "title": "C언어 include어떻게 하나요?",
-    "view_count": 0,
-    "answer_count": 0,
-    "vote_count": 0
+    "writer":         "idx에 해당하는 값",
+    "title":          "idx에 해당하는 값",
+    "view_count":     (idx에 해당하는 값),
+    "answer_count":   (idx에 해당하는 값),
+    "vote_count":     (idx에 해당하는 값)
 }
 ```
 
-## 질문 보기 조회
+[ *FAIL* ] HTTP Status **404**
+
+```json
+{
+  "writer":         "No information was found corresponding to the passed query string",
+  "title":          "No information was found corresponding to the passed query string",
+  "view_count":     0,
+  "answer_count":   0,
+  "vote_count":     0
+}
+```
+
+---
+
+## 질문 조회 [ *GET* ]
 질문의 상세한 정보를 반환해 줍니다.
+
+## Request
 ```url
 /question/detail/{idx}
 ```
 
-### Response JSON
+## Response
+
+[ *SUCCESS* ] HTTP Status **200**
 
 ```json
 {
-    "index": 1,
-    "writer": "admin",
-    "title": "C언어 좋아",
-    "content": "ㄹㅇㄴㄴㄹㄹㄴㄹㄴㅇㄹㄴㄹㄴ",
-    "view_count": 0,
-    "answer_count": 0,
-    "vote_count": 0
+  "index":        (idx에 해당하는 값),
+  "writer":       "idx에 해당하는 값",
+  "title":        "idx에 해당하는 값",
+  "content":      "idx에 해당하는 값",
+  "view_count":   (idx에 해당하는 값),
+  "answer_count": (idx에 해당하는 값),
+  "vote_count":   (idx에 해당하는 값)
 }
 ```
 
+[ *FAIL* ] HTTP Status **404**
 
-# UPDATE
-UPDATE는 CRUD(create, read, update, delete)중 U(update)에 해당됩니다.
+```json
+{
+  "index":        0,
+  "writer":       "No information was found corresponding to the passed query string",
+  "title":        "No information was found corresponding to the passed query string.",
+  "content":      "No information was found corresponding to the passed query string.",
+  "view_count":   0,
+  "answer_count": 0,
+  "vote_count":   0
+}
+```
