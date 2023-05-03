@@ -18,7 +18,7 @@ func atoi(str string) int {
 	for i := 0; i < strLen; i++ {
 		resVal += int(str[i]) - '0'
 		if i+1 != strLen {
-			resVal *= * 10
+			resVal *=  10
 		}
 	}
 	return resVal
