@@ -14,7 +14,7 @@ func NewHTTPHandler() http.Handler {
 	mux.HandleFunc("/auth/login", handler.AuthLogin)
 	
 	// question
-	mux.HandleFunc("/question/totla", handler.QuestionTotal)
+	mux.HandleFunc("/question/total", handler.QuestionTotal)
 	mux.HandleFunc("/question/preview", handler.QuestionPreview)	// query string
 	mux.HandleFunc("/question/detail", handler.QuestionDetail)		// query string
 	
