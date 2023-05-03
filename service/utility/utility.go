@@ -24,7 +24,7 @@ func Atoi(str string) int {
 	return resVal
 }
 
-func GetInvalidQuestionIndexStruct() dhjson.QuestionPreview{
+func GetInvalidQuestionPreviewIndexStruct() dhjson.QuestionPreview{
 	return dhjson.QuestionPreview {
 		Writer: "No information was found corresponding to the passed query",
 		Title: "No information was found corresponding to the passed query",
@@ -32,5 +32,15 @@ func GetInvalidQuestionIndexStruct() dhjson.QuestionPreview{
 		Answer_count: 0,
 		Vote_count: 0,
 	}
-	
+}
+
+func GetInvalidQuestionDetailByIndex() dhjson.QuestionDetail {
+	return dhjson.QuestionDetail {
+		Writer: "No information was found corresponding to the passed query",
+		Title: "No information was found corresponding to the passed query",
+		Content: "No information was found corresponding to the passed query",
+		View_count: 0,
+		Answer_count: 0,
+		Vote_count: 0,
+	}
 }

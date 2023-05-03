@@ -26,8 +26,8 @@ func QuestionPreview(responseWriter http.ResponseWriter, request *http.Request) 
 	question_idx = utility.Atoi(request.URL.Query().Get("question_idx"))
 	
 	if question_idx > query.GetRowsCount() {
-		jsonData, err = json.Marshal(utility.GetInvalidQuestionIndexStruct())
-		statusCode = http.StatusBadRequest
+		jsonData, err = json.Marshal(utility.GetInvalidQuestionPreviewIndexStruct())
+		statusCode = http.StatusNotFound;
 	} else {
 		jsonData, err = json.Marshal(query.GetQuestionPreviewByIndex(question_idx)) 
 		statusCode = http.StatusOK
@@ -42,7 +42,26 @@ func QuestionPreview(responseWriter http.ResponseWriter, request *http.Request) 
 
 // 질문 조회 [GET] (/question/detail?question_idx={idx})
 func QuestionDetail(responseWriter http.ResponseWriter, request *http.Request) {
-	
+	var jsonData []byte
+	var question_idx int
+	var statusCode int
+	var err error
+
+	question_idx = utility.Atoi(request.URL.Query().Get("question_idx"))
+
+	if question_idx > query.GetRowsCount() {
+		jsonData, err = json.Marshal(utility.GetInvalidQuestionDetailByIndex())
+		statusCode = http.StatusNotFound;
+	} else {
+		jsonData, err = json.Marshal(query.GetQuestionDetailByIndex(question_idx))
+		statusCode = http.StatusOK
+	}
+
+	if err != nil {
+		fmt.Println("QuestionDetail error: ", err)
+	}
+
+	utility.SendJSONResponse(responseWriter, statusCode, jsonData)
 }
 
 

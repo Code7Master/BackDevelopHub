@@ -38,3 +38,14 @@ func GetQuestionPreviewByIndex(question_idx int) dhjson.QuestionPreview {
 	}
 	return questionPreview
 }
+
+func GetQuestionDetailByIndex(question_idx int) dhjson.QuestionDetail {
+	query := fmt.Sprintf("SELECT * FROM question_table WHERE idx=%d", question_idx) 
+
+	var questionDetail dhjson.QuestionDetail
+	var ignore interface{}
+	if err := db.QueryRow(query).Scan(&ignore, &questionDetail.Writer, &questionDetail.Title, &questionDetail.Content, &questionDetail.View_count, &questionDetail.Answer_count, &questionDetail.Vote_count); err != nil {
+		fmt.Println("GetQuestionDetailByIndex error: ", err)
+	}
+	return questionDetail
+}
